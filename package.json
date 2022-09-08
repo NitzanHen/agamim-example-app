@@ -10,6 +10,7 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@types/uuid": "^8.3.4",
     "agrippa": "^2.0.0",
     "sass": "^1.54.9",
     "typescript": "^4.8.2",
@@ -17,6 +18,8 @@
     "vite-plugin-solid": "^2.3.0"
   },
   "dependencies": {
-    "solid-js": "^1.5.1"
+    "@solidjs/router": "^0.4.3",
+    "solid-js": "^1.5.1",
+    "uuid": "^9.0.0"
   }
 }

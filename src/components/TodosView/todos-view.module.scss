@@ -1,0 +1,32 @@
+
+.todosView {
+
+  form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+
+    & > input {
+      flex: 1 0 0;
+      border-radius: 8px;
+      border: none;
+      min-height: 3em;
+    }
+
+    & > button {
+      flex: 0 0 auto;
+      width: 3em;
+      height: 3em;
+    }
+  }
+
+  .list {
+    margin-top: 1em;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+}
+

@@ -1,24 +1,15 @@
 import type { Component } from 'solid-js';
-
-import styles from './App.module.css';
+import { Route, Routes } from '@solidjs/router';
+import { TodosView } from './components/TodosView';
+import classes from './app.module.scss';
 
 const App: Component = () => {
   return (
-    <div class={styles.App}>
-      <header class={styles.header}>
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          class={styles.link}
-          href="https://github.com/solidjs/solid"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Solid
-        </a>
-      </header>
-    </div>
+    <main class={classes.main}>
+      <Routes>
+        <Route path="/" component={TodosView} />
+      </Routes>
+    </main>
   );
 };
 

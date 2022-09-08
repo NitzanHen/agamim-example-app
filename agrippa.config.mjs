@@ -1,9 +1,12 @@
 // @ts-check
-import { Styling } from 'agrippa';
-import { defineConfig } from 'agrippa';
+import { PostCommandPlugin, Styling, defineConfig } from 'agrippa';
 
 export default defineConfig({
   options: {
-    styling: Styling.SCSS
-  }
+    styling: Styling.SCSS,
+    baseDir: 'src/components'
+  },
+  plugins: [
+    new PostCommandPlugin('code -r <componentPath>')
+  ]
 });

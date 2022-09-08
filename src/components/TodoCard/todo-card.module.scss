@@ -1,0 +1,12 @@
+.todo {
+  display: flex;
+  background-color: hsla(0, 0, 100%, 0.8);
+  padding: 1em;
+  border-radius: 8px;
+
+  align-items: center;
+}
+
+.space {
+  flex: 1 0 0;
+}
