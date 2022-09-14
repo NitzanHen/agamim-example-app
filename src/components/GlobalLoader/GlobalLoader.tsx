@@ -5,10 +5,6 @@ import classes from './global-loader.module.scss';
 export interface GlobalLoaderProps { }
 
 export const GlobalLoader = (props: GlobalLoaderProps) => {
-
-	createEffect(() => console.log(asyncOperations()))
-	createEffect(() => console.log(isLoading()))
-
 	const size = 50;
 	const girth = 5;
 	const radius = size / 2 - girth;
