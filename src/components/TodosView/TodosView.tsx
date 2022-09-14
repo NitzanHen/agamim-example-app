@@ -4,8 +4,9 @@ import classes from './todos-view.module.scss';
 import { v4 } from 'uuid';
 import { TodoCard } from '../TodoCard';
 import { GlobalLoader } from '../GlobalLoader';
-import { mdiPlus } from '@mdi/js'; 
+import { mdiPlus } from '@mdi/js';
 import { Icon } from '../Icon';
+import empty from './empty.svg';
 
 export interface TodosViewProps { }
 
@@ -31,7 +32,7 @@ export const TodosView = (props: TodosViewProps) => {
 
 	return (
 		<div class={classes.todosView}>
-			<GlobalLoader/>
+			<GlobalLoader />
 
 			<div class={classes.addTodo}>
 				<h2>Add Todo</h2>
@@ -45,7 +46,11 @@ export const TodosView = (props: TodosViewProps) => {
 
 			<Switch>
 				<Match when={todos()?.length === 0}>
-					No todos
+					<div class={classes.empty}>
+						<img src={empty} />
+						<h1>No Todos</h1>
+						<p>Add one to get started!</p>
+					</div>
 				</Match>
 				<Match when={todos()?.length}>
 					<div class={classes.list}>
@@ -53,7 +58,6 @@ export const TodosView = (props: TodosViewProps) => {
 							{(todo) => <TodoCard todo={todo} />}
 						</For>
 					</div>
-
 				</Match>
 			</Switch>
 

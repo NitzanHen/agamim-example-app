@@ -5,7 +5,7 @@
   position: relative;
 
   h2 {
-    color: white;
+    color: hsla(0, 0%, 100%, 0.9);
     margin-bottom: 0.5em;
   }
 
@@ -33,7 +33,7 @@
 
       &:disabled {
         background-color: hsla(0, 0%, 100%, 0.6);
-        color: hsl(0, 0%, 40%)
+        color: hsl(0, 0%, 40%);
       }
     }
   }
@@ -46,8 +46,34 @@
 .list {
   display: flex;
   flex-direction: column;
+
   gap: 1.5em;
-  background-color: hsl(220, 13%, 25%);
+  background-color: hsl(220, 13%, 30%);
   border-radius: calc(8px + 1em);
   padding: 1em;
+}
+
+.empty {
+  width: 60%;
+  margin: 0 auto;
+  padding: 15% 0;
+  color: hsla(0, 0%, 100%, 0.9);
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  & > img {
+    max-width: 100%;
+    margin-bottom: 2em;
+  }
+
+  & > h1 {
+    font-size: 3em;
+  }
+
+  & > p {
+    font-size: 1.2em;
+    color: hsla(0, 0%, 100%, 0.83);
+  }
 }
