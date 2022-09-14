@@ -1,5 +1,5 @@
 :root {
-  --background-color: 220, 13%, 18%;
+  --background-color: hsl(220, 13%, 18%);
 }
 
 html, body, #root {
@@ -8,11 +8,18 @@ html, body, #root {
   padding: 0;
   margin: 0;
 
-  background-color: hsl(var(--background-color));
+  background-color: var(--background-color);
 
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 p, h1, h2, h3, h4, h5, h6 {
   margin: 0
+}
+
+button {
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
 }

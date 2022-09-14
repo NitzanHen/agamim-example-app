@@ -28,7 +28,7 @@ export const TodosView = (props: TodosViewProps) => {
 
 	return (
 		<div class={classes.todosView}>
-			<div>
+			<div class={classes.addTodo}>
 				<h2>Add Todo</h2>
 				<form onSubmit={submit}>
 					<input value={title()} onInput={e => setTitle(e.currentTarget.value)} />

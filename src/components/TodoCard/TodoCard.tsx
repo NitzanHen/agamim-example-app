@@ -1,5 +1,7 @@
 import { deleteTodo, Todo } from '../../todo';
 import classes from './todo-card.module.scss';
+import { mdiDelete } from '@mdi/js'; 
+import { Icon } from '../Icon';
 
 export interface TodoCardProps {
 	todo: Todo
@@ -10,9 +12,11 @@ export const TodoCard = (props: TodoCardProps) => {
 
 	return (
 		<div class={classes.todo}>
-			<p>{todo.title}</p>
+			<p class={classes.title}>{todo.title}</p>
 			<div class={classes.space}/>
-			<button onClick={() => deleteTodo(todo)}>delete</button>
+			<button onClick={() => deleteTodo(todo)}>
+				<Icon path={mdiDelete}/>
+			</button>
 		</div>
 	);
 };

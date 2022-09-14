@@ -1,12 +1,23 @@
 .todo {
   display: flex;
-  background-color: hsla(0, 0, 100%, 0.8);
+  background-color: hsla(0, 0%, 100%, 0.8);
   padding: 1em;
   border-radius: 8px;
 
   align-items: center;
+
+  button {
+    border-radius: 9999px;
+    padding: 0.3em;
+    background-color: hsla(0, 0%, 100%, 0.75);
+  }
 }
 
 .space {
   flex: 1 0 0;
+}
+
+.title {
+  font-size: 1.2em;
+  font-weight: 600;
 }

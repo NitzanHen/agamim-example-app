@@ -1,5 +1,12 @@
-
 .todosView {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+
+  h2 {
+    color: white;
+    margin-bottom: 0.5em;
+  }
 
   form {
     width: 100%;
@@ -18,15 +25,27 @@
       flex: 0 0 auto;
       width: 3em;
       height: 3em;
+      background-color: hsla(0, 0%, 100%, 0.8);
+      border-radius: 8px;
+
+      transition: color 75ms ease-in, background-color 75ms ease-in;
+
+      &:disabled {
+        background-color: hsla(0, 0%, 100%, 0.6);
+      }
     }
-  }
-
-  .list {
-    margin-top: 1em;
-
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
   }
 }
 
+.addTodo {
+  padding: 0 1em;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  background-color: hsl(220, 13%, 25%);
+  border-radius: calc(8px + 1.5em);
+  padding: 1em;
+}
