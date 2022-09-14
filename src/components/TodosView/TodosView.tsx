@@ -3,6 +3,9 @@ import { addTodo, todos } from '../../todo';
 import classes from './todos-view.module.scss';
 import { v4 } from 'uuid';
 import { TodoCard } from '../TodoCard';
+import { GlobalLoader } from '../GlobalLoader';
+import { mdiPlus } from '@mdi/js'; 
+import { Icon } from '../Icon';
 
 export interface TodosViewProps { }
 
@@ -28,18 +31,19 @@ export const TodosView = (props: TodosViewProps) => {
 
 	return (
 		<div class={classes.todosView}>
+			<GlobalLoader/>
+
 			<div class={classes.addTodo}>
 				<h2>Add Todo</h2>
 				<form onSubmit={submit}>
 					<input value={title()} onInput={e => setTitle(e.currentTarget.value)} />
-					<button type="submit" disabled={!title()}>+</button>
+					<button type="submit" disabled={!title()}>
+						<Icon path={mdiPlus} />
+					</button>
 				</form>
 			</div>
 
 			<Switch>
-				<Match when={todos() === undefined}>
-					Loading...
-				</Match>
 				<Match when={todos()?.length === 0}>
 					No todos
 				</Match>

@@ -1,5 +1,6 @@
 import { createEffect, createResource, createSignal } from 'solid-js';
-import { sleep } from './sleep';
+import { addAsyncOperation, removeAsyncOperation } from './loading';
+import { id, sleep } from './utils';
 import { Override } from './types';
 
 export interface Todo {
@@ -28,29 +29,47 @@ const [getTodos, setTodos] = createSignal(getStoredTodos());
 
 createEffect(() => localStorage.setItem('todos', JSON.stringify(getTodos() ?? [])));
 
-createEffect(() => console.log(getTodos()))
-
 export const [todos, { mutate: mutateTodos, refetch: refetchTodos }] = createResource(
   getTodos,
   async (todos) => {
+    const opId = id();
+    addAsyncOperation(opId);
+
     await sleep(500);
+
+    removeAsyncOperation(opId);
     return todos
   }
 );
 
 export const addTodo = async (todo: Todo) => {
+  const opId = id();
+  addAsyncOperation(opId);
+
   await sleep(750);
   setTodos(oldTodos => [todo, ...oldTodos]);
+
+  removeAsyncOperation(opId);
 }
 
 export const editTodo = async (todo: Todo) => {
+  const opId = id();
+  addAsyncOperation(opId);
+
   await sleep(750);
   setTodos(oldTodos => oldTodos.map(
     t => t.id === todo.id ? todo : t
   ));
+
+  removeAsyncOperation(opId);
 }
 
 export const deleteTodo = async (todo: Todo) => {
+  const opId = id();
+  addAsyncOperation(opId);
+
   await sleep(750);
   setTodos(oldTodos => oldTodos.filter(t => t.id !== todo.id));
+
+  removeAsyncOperation(opId);
 }
