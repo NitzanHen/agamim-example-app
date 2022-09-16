@@ -32,17 +32,25 @@ export const LoginView = (props: LoginViewProps) => {
 	return (
 		<>
 			<GlobalLoader />
-			<div>
-				<form onsubmit={handleSubmit}>
-					<label for="username">Username</label>
-					<input id="username" name="username" required/>
-					<label for="password">Password</label>
-					<input id="password" name="password" type="password" required />
+			<main class={classes.main}>
+				<form onsubmit={handleSubmit} class={classes.login}>
+					<h1>Welcome!</h1>
+
+					<div class={classes.field}>
+						<label for="username">Username</label>
+						<input id="username" name="username" required />
+					</div>
+
+					<div class={classes.field}>
+						<label for="password">Password</label>
+						<input id="password" name="password" type="password" required />
+					</div>
 					<button type="submit">
 						log in
 					</button>
 				</form>
-			</div>
+			</main>
+
 		</>
 	);
 };
