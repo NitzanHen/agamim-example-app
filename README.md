@@ -1,34 +1,45 @@
-## Usage
 
-Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.
+# Example App for Agamim E2E Testing Workshop
 
-This is the reason you see a `pnpm-lock.yaml`. That being said, any package manager will work. This file can be safely be removed once you clone a template.
+This app is a simple todo app. Once logged in,
+users can add new todos, mark todos as complete or ongoing and delete todos.
 
-```bash
-$ npm install # or pnpm install or yarn install
-```
+Once dependencies are installed, the app can be launched in production mode using the `serve` script, or in dev mode using the `dev` script.
+For writing tests, it's recommended to launch the app in *production mode*.
 
-### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
+## Logging in
 
-## Available Scripts
+To access the app, the user needs to log in.
+The appropriate credentials are:
 
-In the project directory, you can run:
+- Username: `agamim-user`
+- Password: `shir-ganon`
 
-### `npm dev` or `npm start`
+To log in programmatically, the user needs to set a valid token in localstorage, with the `token` key.
+This token can be acquired from the credentials using the `login()` method in [auth.ts](/src/auth.ts).
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Before writing tests, launch the app and take a moment to get a feel for it.
 
-The page will reload if you make edits.<br>
+## Tests to write
 
-### `npm run build`
+This workshop consists of setting up a Cypress environment for testing this app, then writing tests for it.
+The tests you'll be writing are:
 
-Builds the app for production to the `dist` folder.<br>
-It correctly bundles Solid in production mode and optimizes the build for the best performance.
+- [ ] (1) **Log in**
+- [ ] (2) **Main view smoke test** - check that the header is present and contains the right text
+- [ ] (3) **Check that the Empty view is present**
+- [ ] (4) **Add three todos** - and check that they're all viewed
+- [ ] (5) **Mark a todo as completed** - and check that it's in the completed list
+- [ ] (7) **Mark a todo as ongoing** - and check that it's back in the ongoing list
+- [ ] (8) **Delete a todo** - and check that it's no longer there
+- [ ] (9) **Clear all todos** - and check that the empty view is shown
+- [ ] (10) **Log Out** - and check that you're redirected back to the login page
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Testing the tests
 
-## Deployment
+In addition to the default `main` branch, this repo contains two branches - `broken-auth` and `broken-tests`. If written properly, authentication should not work on the first branch (either programmatic or through the UI), breaking all tests, and all tests *except* for the login one should be fail on the second.
 
-You can deploy the `dist` folder to any static host provider (netlify, surge, now, etc.)
+Use these branches to test your tests:
+
+After all tests are implemented successfully, switch over to those branches (if you're in `serve` mode, don't forget to restart the app!), and make sure the tests fail there.
+
