@@ -10,8 +10,8 @@ export const GlobalLoader = (props: GlobalLoaderProps) => {
 	const radius = size / 2 - girth;
 
 	return (
-		<Show when={isLoading()}>
-			<div class={classes.loader}>
+		<div class={classes.loader}>
+			<Show when={isLoading()}>
 				<svg
 					style={`--perimeter: ${300}`}
 					width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
@@ -22,7 +22,7 @@ export const GlobalLoader = (props: GlobalLoaderProps) => {
 						stroke-width={girth}
 					/>
 				</svg>
-			</div>
-		</Show>
+			</Show>
+		</div>
 	);
 };

@@ -64,12 +64,34 @@ export const editTodo = async (todo: Todo) => {
   removeAsyncOperation(opId);
 }
 
+export const setTodoCompletion = async(todoId: Todo['id'], completed: boolean) => {
+  const opId = id();
+  addAsyncOperation(opId);
+
+  await sleep(750);
+  setTodos(oldTodos => oldTodos.map(
+    t => t.id === todoId ? { ...t, completed } : t
+  ));
+
+  removeAsyncOperation(opId);
+}
+
 export const deleteTodo = async (todo: Todo) => {
   const opId = id();
   addAsyncOperation(opId);
 
   await sleep(750);
   setTodos(oldTodos => oldTodos.filter(t => t.id !== todo.id));
+
+  removeAsyncOperation(opId);
+}
+
+export const clearTodos = async () => {
+  const opId = id();
+  addAsyncOperation(opId);
+
+  await sleep(1500);
+  setTodos([]);
 
   removeAsyncOperation(opId);
 }
